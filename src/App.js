@@ -6,12 +6,13 @@ import { Cart } from "./components/Cart/Cart";
 import { Wishlist } from "./components/Wishlist/Wishlist";
 import { Login } from "./components/Login/Login";
 import { Signup } from "./components/Signup/Signup";
+import { Navbar } from "./components/Navbar/Navbar";
 
 function App() {
 	return (
 		<div className="App">
 			<BrowserRouter>
-				<h1>Hello Ecommerce</h1>
+				<Navbar />
 				<Routes>
 					<Route path="/" element={<HomePage />} />
 					<Route path="/productlist" element={<ProductList />} />
