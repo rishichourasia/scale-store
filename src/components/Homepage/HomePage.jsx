@@ -1,5 +1,6 @@
 import React from "react";
 import "./homepage.css";
+import { Link } from "react-router-dom";
 
 const HomePage = () => {
 	return (
@@ -14,9 +15,9 @@ const HomePage = () => {
 					<div className="img-text">
 						<h3>Enrich your spiritual wellbeing with self-help books.</h3>
 					</div>
-					<a href="./components/productlist.html">
+					<Link to="/productlist">
 						<button className="btn btn-primary">View Books</button>
-					</a>
+					</Link>
 				</div>
 			</div>
 			<div className="desc-container">
@@ -30,9 +31,9 @@ const HomePage = () => {
 							Lorem, ipsum dolor sit amet consectetur adipisicing elit.
 							Asperiores, alias, officia dicta nihil fugiat eum tempora.
 						</p>
-						<a href="./components/productlist.html">
+						<Link to="/productlist">
 							<button className="btn btn-primary">View Books</button>
-						</a>
+						</Link>
 					</div>
 				</div>
 				<div className="feature">
@@ -48,9 +49,9 @@ const HomePage = () => {
 							Lorem, ipsum dolor sit amet consectetur adipisicing elit.
 							Asperiores, alias, officia dicta nihil fugiat eum tempora.
 						</p>
-						<a href="./components/productlist.html">
+						<Link to="/productlist">
 							<button className="btn btn-primary">View Books</button>
-						</a>
+						</Link>
 					</div>
 				</div>
 			</div>

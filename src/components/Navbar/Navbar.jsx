@@ -1,5 +1,6 @@
 import React from "react";
 import "../../styles/navbar.css";
+import { Link } from "react-router-dom";
 
 export const Navbar = () => {
 	return (
@@ -8,39 +9,37 @@ export const Navbar = () => {
 			<header className="nav fixed">
 				<div className="menu-logo">
 					<div className="menu-btn">
-						<a href="/">
+						<Link to="/">
 							<img
 								className="logo-svg"
 								src="/assests/logo/logo simple dark.svg"
 								alt="logo-svg"
 							/>
-						</a>
+						</Link>
 					</div>
 				</div>
 				<div className="nav-links">
-					<a href="/components/wishlist.html">
+					<Link to="/wishlist">
 						<div className="hover">
 							<i className="far fa-heart fa-lg" />
 						</div>
-					</a>
-					<a href="/components/cart.html">
+					</Link>
+					<Link to="/cart">
 						<div className="hover">
 							<i className="far fa-shopping-cart fa-lg" />
 						</div>
-					</a>
-					<a href="/">
-						<div className="hover">
-							<i className="fas is-dark fa-sign-out-alt fa-lg" />
-						</div>
-					</a>
+					</Link>
+					<div className="hover">
+						<i className="fas is-dark fa-sign-out-alt fa-lg" />
+					</div>
 				</div>
 				<div className="nav-btn">
-					<a href="/components/login.html">
+					<Link to="/login">
 						<button className="btn btn-primary">Login</button>
-					</a>
-					<a href="/components/signup.html">
+					</Link>
+					<Link to="/signup">
 						<button className="btn btn-primary-outlined">Signup</button>
-					</a>
+					</Link>
 				</div>
 			</header>
 			{/* navbar */}
