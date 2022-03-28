@@ -1,0 +1,91 @@
+@import url("https://scale-ui.netlify.app/Styles/style.css");
+@import url("/src/styles/main.css");
+@import url("https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@400;700&display=swap");
+
+.img-container {
+	margin: auto;
+	width: 95%;
+	display: flex;
+}
+
+.img-container .homepage-img {
+	width: 100%;
+	border-radius: 4px;
+}
+
+.image-text-overlay {
+	position: absolute;
+	left: 20rem;
+	top: 25rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.image-text-overlay .img-text {
+	font-family: "PT Sans Narrow", sans-serif;
+	font-size: 3rem;
+	text-align: center;
+	color: var(--light-text-color);
+	font-weight: 700;
+}
+
+.image-text-overlay button {
+	background-color: var(--light-text-color);
+	margin-top: 25px;
+	color: var(--dark-text-color);
+}
+
+.desc-container {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	margin: 25px;
+}
+
+.feature {
+	background-color: var(--info-card-bg-color);
+	display: flex;
+	align-items: center;
+	margin: 15px;
+	border-radius: 5px;
+	box-shadow: var(--light-box-shadow);
+	padding: 10px;
+	gap: 20px;
+	height: fit-content;
+}
+
+.feature-title {
+	font-size: 2rem;
+	margin-bottom: 15px;
+	font-weight: 600;
+}
+
+.feature-body {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+}
+
+.feature-body button {
+	margin-left: 0;
+	margin-top: 10px;
+}
+
+.nav {
+	box-shadow: none;
+}
+
+@media only screen and (max-width: 780px) {
+	.desc-container {
+		display: flex;
+		flex-direction: column;
+		margin: 10px 0 0 0;
+	}
+	.image-text-overlay {
+		left: 1rem;
+		top: 9rem;
+	}
+	.image-text-overlay .img-text {
+		font-size: 1rem;
+	}
+}
