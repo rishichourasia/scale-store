@@ -49,7 +49,7 @@
 	flex-wrap: wrap;
 	gap: 30px;
 	margin: 20px;
-	justify-content: space-between;
+	justify-content: flex-start;
 }
 .filter-title {
 	display: flex;

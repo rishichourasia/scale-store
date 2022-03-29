@@ -7,7 +7,7 @@ export const Wishlist = () => {
 			<div class="title">
 				<h1>Wishlist</h1>
 			</div>
-			<div class="productlist">
+			<div class="wishlist">
 				<div class="product-card">
 					<div class="card-header">
 						<img

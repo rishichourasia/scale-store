@@ -12,7 +12,7 @@ export const products = [
 		price: "200",
 		rating: Math.floor(Math.random() * 5) + 1,
 		categoryName: "Self-Help",
-		image: "/public/assests/pictures/sapiens.png",
+		image: "/assests/pictures/sapiens.png",
 	},
 	{
 		_id: uuid(),
@@ -20,7 +20,7 @@ export const products = [
 		price: "500",
 		rating: Math.floor(Math.random() * 5) + 1,
 		categoryName: "Human Psychology",
-		image: "/public/assests/pictures/behave.jpg",
+		image: "/assests/pictures/behave.jpg",
 	},
 	{
 		_id: uuid(),
@@ -28,7 +28,7 @@ export const products = [
 		price: "250",
 		rating: Math.floor(Math.random() * 5) + 1,
 		categoryName: "Self-help",
-		image: "/public/assests/pictures/habits.jpg",
+		image: "/assests/pictures/habits.jpg",
 	},
 	{
 		_id: uuid(),
@@ -36,7 +36,7 @@ export const products = [
 		price: "150",
 		rating: Math.floor(Math.random() * 5) + 1,
 		categoryName: "Self-help",
-		image: "/public/assests/pictures/naval.png",
+		image: "/assests/pictures/naval.png",
 	},
 	{
 		_id: uuid(),
@@ -44,7 +44,7 @@ export const products = [
 		price: "450",
 		rating: Math.floor(Math.random() * 5) + 1,
 		categoryName: "Human Psychology",
-		image: "/public/assests/pictures/thinking.jpg",
+		image: "/assests/pictures/thinking.jpg",
 	},
 	{
 		_id: uuid(),
@@ -52,6 +52,6 @@ export const products = [
 		price: "400",
 		rating: Math.floor(Math.random() * 5) + 1,
 		categoryName: "Self-help",
-		image: "/public/assests/pictures/jordan.png",
+		image: "/assests/pictures/jordan.png",
 	},
 ];
