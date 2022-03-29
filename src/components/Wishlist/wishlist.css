@@ -1,0 +1,100 @@
+/* @import url("https://scale-ui.netlify.app/Styles/style.css"); */
+@import url("/src/styles/main.css");
+
+.wishlist {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 40px;
+}
+
+.wishlist .title {
+	margin-bottom: 15px;
+}
+
+.productlist {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	gap: 30px;
+	margin: 20px;
+	justify-content: center;
+}
+
+/* card css  */
+.product-card {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	height: auto;
+	width: 18rem;
+	box-shadow: var(--light-box-shadow);
+	border-radius: 4px;
+}
+
+.card-header {
+	position: relative;
+	display: flex;
+	justify-content: center;
+}
+.card-highlight {
+	position: absolute;
+	left: 0rem;
+	top: 0rem;
+	background-color: var(--light-bg-color);
+	padding: 3px;
+	border-radius: 3px;
+	color: var(--light-text-color);
+}
+.card-icon {
+	position: absolute;
+	bottom: 1rem;
+	right: 0.5rem;
+	width: 35px;
+	height: 35px;
+	border-radius: 50%;
+	transition: all 0.1s;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.card-img {
+	width: auto;
+}
+
+.card-body {
+	display: flex;
+	flex-direction: column;
+	margin: 15px 15px 5px 15px;
+	margin-top: auto;
+	width: auto;
+}
+.card-title {
+	margin-bottom: 10px;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+}
+.card-title p {
+	font-size: 0.8rem;
+	color: var(--grey-text-color);
+}
+
+.card-text {
+	margin: 5px;
+}
+.card-cta {
+	display: flex;
+	flex-direction: column;
+}
+.card-cta button {
+	margin: 10px 0px 0px 0px;
+}
+.card-cta button:nth-child(3) {
+	margin-bottom: 10px;
+}
+
+.card-hover:hover {
+	background-color: var(--light-bg-color);
+}
+/* card css  */
