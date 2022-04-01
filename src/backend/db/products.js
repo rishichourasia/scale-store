@@ -9,7 +9,7 @@ export const products = [
 	{
 		_id: uuid(),
 		title: "Sapiens",
-		price: "200",
+		price: 200,
 		rating: Math.floor(Math.random() * 5) + 1,
 		categoryName: "Self-Help",
 		image: "/assests/pictures/sapiens.png",
@@ -17,7 +17,7 @@ export const products = [
 	{
 		_id: uuid(),
 		title: "Behave",
-		price: "500",
+		price: 500,
 		rating: Math.floor(Math.random() * 5) + 1,
 		categoryName: "Human Psychology",
 		image: "/assests/pictures/behave.jpg",
@@ -25,7 +25,7 @@ export const products = [
 	{
 		_id: uuid(),
 		title: "Atomic Habits",
-		price: "250",
+		price: 250,
 		rating: Math.floor(Math.random() * 5) + 1,
 		categoryName: "Self-help",
 		image: "/assests/pictures/habits.jpg",
@@ -33,7 +33,7 @@ export const products = [
 	{
 		_id: uuid(),
 		title: "Almanac of Naval Ravikant",
-		price: "150",
+		price: 150,
 		rating: Math.floor(Math.random() * 5) + 1,
 		categoryName: "Self-help",
 		image: "/assests/pictures/naval.png",
@@ -41,7 +41,7 @@ export const products = [
 	{
 		_id: uuid(),
 		title: "Thinking Fast and Slow",
-		price: "450",
+		price: 450,
 		rating: Math.floor(Math.random() * 5) + 1,
 		categoryName: "Human Psychology",
 		image: "/assests/pictures/thinking.jpg",
@@ -49,7 +49,7 @@ export const products = [
 	{
 		_id: uuid(),
 		title: "12 Rules For Life",
-		price: "400",
+		price: 400,
 		rating: Math.floor(Math.random() * 5) + 1,
 		categoryName: "Self-help",
 		image: "/assests/pictures/jordan.png",

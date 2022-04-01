@@ -1,25 +1,22 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useReducer } from "react";
 import { Sidebar } from "./Sidebar";
 import "./productlist.css";
-import axios from "axios";
+import { useProduct } from "../../context/product-context";
+import { apiCall } from "../../utils/product-api-call";
 
 export const ProductList = () => {
-	const [productList, setProductList] = useState([]);
+	const { productState, dispatch } = useProduct();
 
 	useEffect(() => {
-		axios.get("/api/products").then((res) => {
-			const data = res.data.products;
-			console.log(data);
-			setProductList(data);
-		});
+		apiCall(dispatch);
 	}, []);
 
 	return (
 		<div className="main">
 			<Sidebar />
 			<div className="productlist">
-				{productList.map((item) => (
-					<div className="product-card">
+				{productState.productsList.map((item) => (
+					<div key={item.id} className="product-card">
 						<div className="card-header">
 							<img className="card-img" src={item.image} alt="product-img" />
 							<span className="card-highlight">Top Rated</span>
@@ -36,7 +33,7 @@ export const ProductList = () => {
 								Lorem ipsum, dolor sit amet consectetur adipisicing elit.
 							</p>
 							<div className="card-cta">
-								<h2>{item.price}</h2>
+								<h2>Rs {item.price}</h2>
 								<button className="btn btn-primary">
 									<i className="far fa-shopping-cart fa-lg" /> Buy Now
 								</button>

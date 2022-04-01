@@ -50,22 +50,22 @@ export const Sidebar = () => {
 				<ol className="list">
 					<li>
 						<label>
-							<input type="radio" />4 Star and above
+							<input type="radio" name="rating" />4 Star and above
 						</label>
 					</li>
 					<li>
 						<label>
-							<input type="radio" />3 Star and above
+							<input type="radio" name="rating" />3 Star and above
 						</label>
 					</li>
 					<li>
 						<label>
-							<input type="radio" />2 Star and above
+							<input type="radio" name="rating" />2 Star and above
 						</label>
 					</li>
 					<li>
 						<label>
-							<input type="radio" />1 Star and above
+							<input type="radio" name="rating" />1 Star and above
 						</label>
 					</li>
 				</ol>
@@ -75,13 +75,13 @@ export const Sidebar = () => {
 				<ol className="list">
 					<li>
 						<label>
-							<input type="radio" />
+							<input type="radio" name="sort" />
 							Price high to low
 						</label>
 					</li>
 					<li>
 						<label>
-							<input type="radio" />
+							<input type="radio" name="sort" />
 							Price low to high
 						</label>
 					</li>
