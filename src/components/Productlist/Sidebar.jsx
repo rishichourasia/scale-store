@@ -1,6 +1,9 @@
 import React from "react";
+import { useProduct } from "../../context/product-context";
 
 export const Sidebar = () => {
+	const { productState, dispatch } = useProduct();
+
 	return (
 		<div className="sidebar">
 			<div className="filter-title">
@@ -75,14 +78,22 @@ export const Sidebar = () => {
 				<ol className="list">
 					<li>
 						<label>
-							<input type="radio" name="sort" />
-							Price high to low
+							<input
+								type="radio"
+								name="sort"
+								onChange={() => dispatch({ type: "HIGH_TO_LOW" })}
+							/>
+							Price High to low
 						</label>
 					</li>
 					<li>
 						<label>
-							<input type="radio" name="sort" />
-							Price low to high
+							<input
+								type="radio"
+								name="sort"
+								onChange={() => dispatch({ type: "LOW_TO_HIGH" })}
+							/>
+							Price Low to high
 						</label>
 					</li>
 				</ol>

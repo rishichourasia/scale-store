@@ -1,8 +1,9 @@
-import React, { useEffect, useReducer } from "react";
+import React, { useEffect } from "react";
 import { Sidebar } from "./Sidebar";
 import "./productlist.css";
 import { useProduct } from "../../context/product-context";
 import { apiCall } from "../../utils/product-api-call";
+import { sortProducts } from "../../utils/filters";
 
 export const ProductList = () => {
 	const { productState, dispatch } = useProduct();
@@ -11,11 +12,18 @@ export const ProductList = () => {
 		apiCall(dispatch);
 	}, []);
 
+	const sortedProducts = sortProducts(
+		productState.productsList,
+		productState.sortBy
+	);
+
+	console.log(sortedProducts);
+
 	return (
 		<div className="main">
 			<Sidebar />
 			<div className="productlist">
-				{productState.productsList.map((item) => (
+				{sortedProducts.map((item) => (
 					<div key={item.id} className="product-card">
 						<div className="card-header">
 							<img className="card-img" src={item.image} alt="product-img" />
