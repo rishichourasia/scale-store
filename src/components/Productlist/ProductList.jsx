@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { Sidebar } from "./Sidebar";
 import "./productlist.css";
 import { useProduct } from "../../context/product-context";
-import { apiCall } from "../../utils/product-api-call";
+import { apiCall } from "../../utils/productlist-api-call";
 import { sortProducts } from "../../utils/filters";
 
 export const ProductList = () => {
