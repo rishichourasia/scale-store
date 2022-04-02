@@ -1,0 +1,172 @@
+/* @import url("https://scale-ui.netlify.app/Styles/style.css"); */
+@import url("/src/styles/main.css");
+
+.cart-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 20px;
+	margin-top: 40px;
+}
+
+.fixed {
+	position: relative;
+}
+
+.cart {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	width: 85%;
+	height: auto;
+	gap: 20rem;
+}
+
+.products {
+	display: flex;
+	flex-direction: column;
+	gap: 30px;
+}
+
+/* card css  */
+.cart-card {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	height: auto;
+	width: 35rem;
+	box-shadow: var(--light-box-shadow);
+	border-radius: 4px;
+}
+
+.cart-img {
+	width: 80%;
+}
+
+.card-header {
+	position: relative;
+	display: flex;
+	justify-content: center;
+}
+.card-highlight {
+	position: absolute;
+	left: 0rem;
+	top: 0rem;
+	background-color: var(--light-bg-color);
+	padding: 3px;
+	border-radius: 3px;
+	color: var(--light-text-color);
+}
+.card-icon {
+	position: absolute;
+	bottom: 1rem;
+	right: 0.5rem;
+	width: 35px;
+	height: 35px;
+	border-radius: 50%;
+	transition: all 0.1s;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.card-body {
+	display: flex;
+	flex-direction: column;
+	width: 65%;
+}
+.card-cta h2 {
+	margin-left: 10px;
+	margin-bottom: 10px;
+}
+
+.card-title {
+	margin-bottom: 15px;
+	align-items: flex-start;
+	flex-direction: column;
+}
+.card-title p {
+	font-size: 0.8rem;
+	color: var(--grey-text-color);
+}
+
+.card-text {
+	margin-bottom: 15px;
+}
+.card-cta {
+	display: flex;
+	flex-direction: column;
+	margin-top: 20px;
+}
+
+.card-cta button {
+	margin: 5px 5px 5px 5px;
+}
+
+.card-hover:hover {
+	background-color: var(--light-bg-color);
+}
+/* card css  */
+
+/* bill css  */
+.billing {
+	box-shadow: var(--light-box-shadow);
+	border-radius: 4px;
+	height: fit-content;
+	width: 25rem;
+	padding: 10px;
+}
+.billing p {
+	color: var(--grey-text-color);
+}
+.billing button {
+	width: -webkit-fill-available;
+	margin-bottom: 15px;
+}
+.bill-title {
+	margin: 5px 10px;
+	border-bottom: var(--light-border);
+	padding-bottom: 5px;
+}
+.bill-details,
+.total-bill {
+	display: flex;
+	margin: 5px 10px;
+	justify-content: space-between;
+}
+
+.total-bill {
+	border-top: var(--light-border);
+	border-bottom: var(--light-border);
+	padding: 10px 0 10px 0;
+	margin-top: 10px;
+}
+
+.total-bill p {
+	color: var(--dark-text-color);
+	font-size: 1.2rem;
+	font-weight: 600;
+}
+
+.strong {
+	color: var(--dark-text-color);
+	font-size: 1rem;
+	font-weight: 600;
+	margin: 5px 10px;
+}
+
+@media only screen and (max-width: 780px) {
+	.cart {
+		gap: 2rem;
+		justify-content: center;
+	}
+	.product-card {
+		width: 18rem;
+	}
+	.card-header {
+		width: 100%;
+	}
+	.card-body {
+		width: 100%;
+	}
+}

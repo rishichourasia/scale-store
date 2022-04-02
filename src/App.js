@@ -1,12 +1,14 @@
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { HomePage } from "./components/Homepage/HomePage";
-import { ProductList } from "./components/Productlist/ProductList";
-import { Cart } from "./components/Cart/Cart";
-import { Wishlist } from "./components/Wishlist/Wishlist";
-import { Login } from "./components/Login/Login";
-import { Signup } from "./components/Signup/Signup";
-import { Navbar } from "./components/Navbar/Navbar";
+import {
+	HomePage,
+	ProductList,
+	Cart,
+	Wishlist,
+	Login,
+	Signup,
+	Navbar,
+} from "./components/components.jsx";
 
 function App() {
 	return (

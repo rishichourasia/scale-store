@@ -6,22 +6,28 @@ import { v4 as uuid } from "uuid";
  * */
 
 export const categories = [
-  {
-    _id: uuid(),
-    categoryName: "fiction",
-    description:
-      "literature in the form of prose, especially novels, that describes imaginary events and people",
-  },
-  {
-    _id: uuid(),
-    categoryName: "non-fiction",
-    description:
-      "Non-fiction is writing that gives information or describes real events, rather than telling a story.",
-  },
-  {
-    _id: uuid(),
-    categoryName: "horror",
-    description:
-      "Meant to cause discomfort and fear for both the character and readers, horror writers often make use of supernatural and paranormal elements in morbid stories that are sometimes a little too realistic.",
-  },
+	{
+		_id: uuid(),
+		categoryName: "Self-Help",
+		description:
+			"A self-help book is one that is written with the intention to instruct its readers on solving personal problems.",
+	},
+	{
+		_id: uuid(),
+		categoryName: "Philosophy",
+		description:
+			"psychological novel, work of fiction in which the thoughts, feelings, and motivations of the characters are of equal or greater interest than is the external action of the narrative.",
+	},
+	{
+		_id: uuid(),
+		categoryName: "Human Psychology",
+		description:
+			"Human behavior is the potential and expressed capacity (mentally, physically, and socially) of human individuals or groups to respond to internal and external stimuli throughout their life.",
+	},
+	{
+		_id: uuid(),
+		categoryName: "Spirituality",
+		description:
+			"Spiritual reading is devoted to the reading of lives of saints, writings of Doctors and the Fathers of the Church, theological works written by holy people, and doctrinal writings of Church authorities.",
+	},
 ];
