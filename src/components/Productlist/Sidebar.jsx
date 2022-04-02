@@ -2,7 +2,7 @@ import React from "react";
 import { useProduct } from "../../context/product-context";
 
 export const Sidebar = () => {
-	const { productState, dispatch } = useProduct();
+	const { productState, productDispatch } = useProduct();
 
 	return (
 		<div className="sidebar">
@@ -81,7 +81,7 @@ export const Sidebar = () => {
 							<input
 								type="radio"
 								name="sort"
-								onChange={() => dispatch({ type: "HIGH_TO_LOW" })}
+								onChange={() => productDispatch({ type: "HIGH_TO_LOW" })}
 							/>
 							Price High to low
 						</label>
@@ -91,7 +91,7 @@ export const Sidebar = () => {
 							<input
 								type="radio"
 								name="sort"
-								onChange={() => dispatch({ type: "LOW_TO_HIGH" })}
+								onChange={() => productDispatch({ type: "LOW_TO_HIGH" })}
 							/>
 							Price Low to high
 						</label>

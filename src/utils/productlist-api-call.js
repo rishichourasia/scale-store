@@ -1,9 +1,9 @@
 import axios from "axios";
 
-const apiCall = async (dispatch) => {
+const apiCall = async (productDispatch) => {
 	try {
 		const response = await axios.get("/api/products");
-		dispatch({ type: "API_CALL", payload: response.data.products });
+		productDispatch({ type: "API_CALL", payload: response.data.products });
 	} catch (err) {
 		console.log(err);
 	}

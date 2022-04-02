@@ -6,18 +6,16 @@ import { apiCall } from "../../utils/productlist-api-call";
 import { sortProducts } from "../../utils/filters";
 
 export const ProductList = () => {
-	const { productState, dispatch } = useProduct();
+	const { productState, productDispatch } = useProduct();
 
 	useEffect(() => {
-		apiCall(dispatch);
+		apiCall(productDispatch);
 	}, []);
 
 	const sortedProducts = sortProducts(
 		productState.productsList,
 		productState.sortBy
 	);
-
-	console.log(sortedProducts);
 
 	return (
 		<div className="main">
