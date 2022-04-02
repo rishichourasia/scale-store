@@ -7,4 +7,17 @@ const sortProducts = (state, sortBy) => {
 	return state;
 };
 
-export { sortProducts };
+const ratingProducts = (state, rating) => {
+	if (rating === 4) {
+		return [...state].filter((rate) => rate.rating >= rating);
+	} else if (rating === 3) {
+		return [...state].filter((rate) => rate.rating >= rating);
+	} else if (rating === 2) {
+		return [...state].filter((rate) => rate.rating >= rating);
+	} else if (rating === 1) {
+		return [...state].filter((rate) => rate.rating >= rating);
+	}
+	return state;
+};
+
+export { sortProducts, ratingProducts };

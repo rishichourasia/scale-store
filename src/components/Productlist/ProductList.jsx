@@ -3,7 +3,7 @@ import { Sidebar } from "./Sidebar";
 import "./productlist.css";
 import { useProduct } from "../../context/product-context";
 import { apiCall } from "../../utils/productlist-api-call";
-import { sortProducts } from "../../utils/filters";
+import { ratingProducts, sortProducts } from "../../utils/filters";
 
 export const ProductList = () => {
 	const { productState, productDispatch } = useProduct();
@@ -12,10 +12,14 @@ export const ProductList = () => {
 		apiCall(productDispatch);
 	}, []);
 
-	const sortedProducts = sortProducts(
+	const ratedProducts = ratingProducts(
 		productState.productsList,
-		productState.sortBy
+		productState.rating
 	);
+
+	console.log(ratedProducts);
+
+	const sortedProducts = sortProducts(ratedProducts, productState.sortBy);
 
 	return (
 		<div className="main">
@@ -34,6 +38,7 @@ export const ProductList = () => {
 							<div className="card-title">
 								<h2>{item.title}</h2>
 								<p>{item.categoryName}</p>
+								<p>Rating : {item.rating}</p>
 							</div>
 							<p className="card-text">
 								Lorem ipsum, dolor sit amet consectetur adipisicing elit.

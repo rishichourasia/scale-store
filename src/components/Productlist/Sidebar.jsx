@@ -53,22 +53,42 @@ export const Sidebar = () => {
 				<ol className="list">
 					<li>
 						<label>
-							<input type="radio" name="rating" />4 Star and above
+							<input
+								type="radio"
+								name="rating"
+								onChange={() => productDispatch({ type: 4 })}
+							/>
+							4 Star and above
 						</label>
 					</li>
 					<li>
 						<label>
-							<input type="radio" name="rating" />3 Star and above
+							<input
+								type="radio"
+								name="rating"
+								onChange={() => productDispatch({ type: 3 })}
+							/>
+							3 Star and above
 						</label>
 					</li>
 					<li>
 						<label>
-							<input type="radio" name="rating" />2 Star and above
+							<input
+								type="radio"
+								name="rating"
+								onChange={() => productDispatch({ type: 2 })}
+							/>
+							2 Star and above
 						</label>
 					</li>
 					<li>
 						<label>
-							<input type="radio" name="rating" />1 Star and above
+							<input
+								type="radio"
+								name="rating"
+								onChange={() => productDispatch({ type: 1 })}
+							/>
+							1 Star and above
 						</label>
 					</li>
 				</ol>
