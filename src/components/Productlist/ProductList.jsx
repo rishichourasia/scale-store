@@ -3,23 +3,19 @@ import { Sidebar } from "./Sidebar";
 import "./productlist.css";
 import { useProduct } from "../../context/product-context";
 import { apiCall } from "../../utils/productlist-api-call";
-import { ratingProducts, sortProducts } from "../../utils/filters";
+import { priceRange, ratingProducts, sortProducts } from "../../utils/filters";
 
 export const ProductList = () => {
 	const { productState, productDispatch } = useProduct();
+	const { productsList, rating, sortBy, price } = productState;
 
 	useEffect(() => {
 		apiCall(productDispatch);
 	}, []);
 
-	const ratedProducts = ratingProducts(
-		productState.productsList,
-		productState.rating
-	);
-
-	console.log(ratedProducts);
-
-	const sortedProducts = sortProducts(ratedProducts, productState.sortBy);
+	const rangedProducts = priceRange(productsList, price);
+	const ratedProducts = ratingProducts(rangedProducts, rating);
+	const sortedProducts = sortProducts(ratedProducts, sortBy);
 
 	return (
 		<div className="main">
@@ -44,7 +40,7 @@ export const ProductList = () => {
 								Lorem ipsum, dolor sit amet consectetur adipisicing elit.
 							</p>
 							<div className="card-cta">
-								<h2>Rs {item.price}</h2>
+								<h2>₹{item.price}</h2>
 								<button className="btn btn-primary">
 									<i className="far fa-shopping-cart fa-lg" /> Buy Now
 								</button>
