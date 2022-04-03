@@ -4,20 +4,32 @@ import { useProduct } from "../../context/product-context";
 export const Sidebar = () => {
 	const { productState, productDispatch } = useProduct();
 
+	const { price } = productState;
+
 	return (
 		<div className="sidebar">
 			<div className="filter-title">
 				<p className="aside-title">Filter</p>
-				<a href="#">Clear</a>
+				<p>Clear</p>
 			</div>
 			<div className="quantity-slider">
-				<p className="aside-title">Price Range</p>
+				<p className="aside-title">Price Range : ₹{price}</p>
 				<div className="slider-range">
-					<span>50</span>
-					<span>150</span>
 					<span>200</span>
+					<span>500</span>
+					<span>1000</span>
 				</div>
-				<input type="range" min={1} max={200} className="slider" />
+				<input
+					type="range"
+					min={200}
+					max={1000}
+					step={100}
+					value={price}
+					className="slider"
+					onChange={(e) =>
+						productDispatch({ type: "PRICE_SLIDER", payload: e.target.value })
+					}
+				/>
 			</div>
 			<div className="list-container">
 				<p className="aside-title">Category</p>
@@ -53,22 +65,50 @@ export const Sidebar = () => {
 				<ol className="list">
 					<li>
 						<label>
-							<input type="radio" name="rating" />4 Star and above
+							<input
+								type="radio"
+								name="rating"
+								onChange={() =>
+									productDispatch({ type: "4_AND_ABOVE", payload: 4 })
+								}
+							/>
+							4 Star and above
 						</label>
 					</li>
 					<li>
 						<label>
-							<input type="radio" name="rating" />3 Star and above
+							<input
+								type="radio"
+								name="rating"
+								onChange={() =>
+									productDispatch({ type: "3_AND_ABOVE", payload: 3 })
+								}
+							/>
+							3 Star and above
 						</label>
 					</li>
 					<li>
 						<label>
-							<input type="radio" name="rating" />2 Star and above
+							<input
+								type="radio"
+								name="rating"
+								onChange={() =>
+									productDispatch({ type: "2_AND_ABOVE", payload: 2 })
+								}
+							/>
+							2 Star and above
 						</label>
 					</li>
 					<li>
 						<label>
-							<input type="radio" name="rating" />1 Star and above
+							<input
+								type="radio"
+								name="rating"
+								onChange={() =>
+									productDispatch({ type: "1_AND_ABOVE", payload: 1 })
+								}
+							/>
+							1 Star and above
 						</label>
 					</li>
 				</ol>

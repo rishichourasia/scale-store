@@ -8,6 +8,7 @@ const ProductProvider = ({ children }) => {
 		productsList: [],
 		sortBy: "",
 		rating: "",
+		price: 1000,
 	});
 
 	return (
