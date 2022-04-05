@@ -15,4 +15,46 @@ const priceRange = (state, price) => {
 	return state.filter((item) => item.price <= price);
 };
 
-export { sortProducts, ratingProducts, priceRange };
+const sortCategory = (state, categories) => {
+	const { selfHelp, philosophy, humanpsychology, spirituality } = categories;
+	const filterdCategory = [];
+
+	if (
+		selfHelp === false &&
+		philosophy === false &&
+		humanpsychology === false &&
+		spirituality === false
+	) {
+		return state;
+	}
+
+	if (selfHelp) {
+		const selectCategory = state.filter(
+			(item) => item.categoryName === "Self-Help"
+		);
+		filterdCategory.push(...selectCategory);
+	}
+	if (humanpsychology) {
+		const selectCategory = state.filter(
+			(item) => item.categoryName === "Human Psychology"
+		);
+		filterdCategory.push(...selectCategory);
+	}
+
+	if (philosophy) {
+		const selectCategory = state.filter(
+			(item) => item.categoryName === "Philosophy"
+		);
+		filterdCategory.push(...selectCategory);
+	}
+
+	if (spirituality) {
+		const selectCategory = state.filter(
+			(item) => item.categoryName === "Spirituality"
+		);
+		filterdCategory.push(...selectCategory);
+	}
+	return filterdCategory;
+};
+
+export { sortProducts, ratingProducts, priceRange, sortCategory };
