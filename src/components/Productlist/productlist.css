@@ -92,6 +92,10 @@
 .list-container input {
 	margin: 0 3px 0 3px;
 }
+.clear {
+	padding: 7px;
+	cursor: pointer;
+}
 
 /* card css  */
 .product-card {

@@ -48,6 +48,19 @@ const ProductReducer = (state, action) => {
 					spirituality: !state.categories.spirituality,
 				},
 			};
+		case "CLEAR":
+			return {
+				...state,
+				sortBy: "",
+				rating: "",
+				price: 1000,
+				categories: {
+					selfHelp: false,
+					philosophy: false,
+					humanpsychology: false,
+					spirituality: false,
+				},
+			};
 	}
 };
 

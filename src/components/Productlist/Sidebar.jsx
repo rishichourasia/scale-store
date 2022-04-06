@@ -12,7 +12,9 @@ export const Sidebar = () => {
 		<div className="sidebar">
 			<div className="filter-title">
 				<p className="aside-title">Filter</p>
-				<p>Clear</p>
+				<p className="clear" onClick={() => productDispatch({ type: "CLEAR" })}>
+					Clear
+				</p>
 			</div>
 			<div className="quantity-slider">
 				<p className="aside-title">Price Range : ₹{price}</p>
