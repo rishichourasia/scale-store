@@ -1,36 +1,49 @@
 import React from "react";
+import { useCart } from "../../context/cart-context";
 import { useWishlist } from "../../context/wishlist-context";
 import "./wishlist.css";
 
 export const Wishlist = () => {
 	const { wishlistState, wishlistDispatch } = useWishlist();
-	console.log(wishlistState);
+	const { cartState, cartDispatch } = useCart();
+
+	const cartClickHandler = (product) => {
+		if (cartState.cart.some((item) => item.id === product.id)) {
+			cartDispatch({ type: "INCREASE_QTY", payload: product });
+			console.log("Increase");
+		} else {
+			cartDispatch({ type: "ADD_TO_CART", payload: product });
+			console.log("ADD");
+		}
+	};
 
 	return (
-		<div class="wishlist">
-			<div class="title">
+		<div className="wishlist">
+			<div className="title">
 				<h1>Wishlist</h1>
 			</div>
-			<div class="wishlist-item">
+			<div className="wishlist-item">
 				{wishlistState.wishlist.map((item) => (
-					<div class="product-card">
-						<div class="card-header">
-							<img class="card-img" src={item.image} alt="product-img" />
-							<span class="card-highlight">Top Rated</span>
+					<div key={item.id} className="product-card">
+						<div className="card-header">
+							<img className="card-img" src={item.image} alt="product-img" />
+							<span className="card-highlight">Top Rated</span>
 						</div>
-						<div class="card-body">
-							<div class="card-title">
+						<div className="card-body">
+							<div className="card-title">
 								<h2>{item.title}</h2>
-								<p>{item.categories}</p>
+								<p>{item.categoryName}</p>
 							</div>
-							<p class="card-text">
+							<p className="card-text">
 								Lorem ipsum, dolor sit amet consectetur adipisicing elit.
 							</p>
-
-							<div class="card-cta">
+							<div className="card-cta">
 								<h2>₹{item.price}</h2>
-								<button class="btn btn-primary">
-									<i class="far fa-shopping-cart fa-lg"></i> Add to cart
+								<button
+									className="btn btn-primary"
+									onClick={() => cartClickHandler(item)}
+								>
+									<i className="far fa-shopping-cart fa-lg"></i> Add to cart
 								</button>
 								<button
 									onClick={() =>
@@ -39,7 +52,7 @@ export const Wishlist = () => {
 											payload: item.id,
 										})
 									}
-									class="btn btn-primary-outlined"
+									className="btn btn-primary-outlined"
 								>
 									Remove from Wishlist
 								</button>

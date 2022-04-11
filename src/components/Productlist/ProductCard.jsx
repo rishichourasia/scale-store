@@ -1,11 +1,23 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { useCart } from "../../context/cart-context";
 import { useWishlist } from "../../context/wishlist-context";
 
 export const ProductCard = ({ item }) => {
-	const { wishlistState, wishlistDispatch } = useWishlist();
-	console.log(wishlistState);
-
+	const { wishlistDispatch } = useWishlist();
+	const { cartState, cartDispatch } = useCart();
 	const { id, image, title, categoryName, rating, price } = item;
+
+	const cartClickHandler = (itemId) => {
+		if (cartState.cart.some((item) => item.id === itemId)) {
+			cartDispatch({ type: "INCREASE_QTY", payload: item });
+			console.log("Increase");
+		} else {
+			cartDispatch({ type: "ADD_TO_CART", payload: item });
+			console.log("ADD");
+		}
+	};
+
 	return (
 		<div key={id} className="product-card">
 			<div className="card-header">
@@ -31,9 +43,20 @@ export const ProductCard = ({ item }) => {
 				</p>
 				<div className="card-cta">
 					<h2>₹{price}</h2>
-					<button className="btn btn-primary">
-						<i className="far fa-shopping-cart fa-lg" /> Add to Cart
-					</button>
+					{cartState.cart.some((item) => item.id === id) ? (
+						<Link to="/cart">
+							<button className="btn btn-primary goto">
+								<i className="far fa-shopping-cart fa-lg" /> Go to Cart
+							</button>
+						</Link>
+					) : (
+						<button
+							onClick={() => cartClickHandler(id)}
+							className="btn btn-primary"
+						>
+							<i className="far fa-shopping-cart fa-lg" /> Add to Cart
+						</button>
+					)}
 				</div>
 			</div>
 		</div>

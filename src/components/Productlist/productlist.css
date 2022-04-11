@@ -163,6 +163,9 @@
 .card-hover:hover {
 	background-color: var(--light-bg-color);
 }
+.goto {
+	width: 100%;
+}
 /* card css  */
 
 @media only screen and (max-width: 780px) {

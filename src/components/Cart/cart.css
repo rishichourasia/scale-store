@@ -5,8 +5,8 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	gap: 20px;
-	margin-top: 40px;
+	gap: 40px;
+	margin-top: 30px;
 }
 
 .fixed {
@@ -70,10 +70,11 @@
 	align-items: center;
 }
 
-.card-body {
+.cart-body {
 	display: flex;
 	flex-direction: column;
-	width: 65%;
+	width: 70%;
+	margin-top: auto;
 }
 .card-cta h2 {
 	margin-left: 10px;
@@ -105,6 +106,14 @@
 
 .card-hover:hover {
 	background-color: var(--light-bg-color);
+}
+
+.qty-btn {
+	padding: 5px;
+}
+
+.quantity {
+	padding: 5px;
 }
 /* card css  */
 
@@ -155,6 +164,10 @@
 	margin: 5px 10px;
 }
 
+.discount {
+	color: var(--light-green-color);
+}
+
 @media only screen and (max-width: 780px) {
 	.cart {
 		gap: 2rem;
@@ -163,10 +176,16 @@
 	.product-card {
 		width: 18rem;
 	}
-	.card-header {
+	.cart-body {
+		width: 60%;
+	}
+	.cart-card {
+		width: 25rem;
+	}
+	/* .card-header {
 		width: 100%;
 	}
 	.card-body {
 		width: 100%;
-	}
+	} */
 }
