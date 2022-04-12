@@ -1,129 +1,58 @@
 import React from "react";
+import { useCart } from "../../context/cart-context";
+import { useWishlist } from "../../context/wishlist-context";
+import { cartClickHandler } from "../../utils/wishlist-cart-clickHandler";
 import "./wishlist.css";
 
 export const Wishlist = () => {
+	const { wishlistState, wishlistDispatch } = useWishlist();
+	const { cartState, cartDispatch } = useCart();
+
 	return (
-		<div class="wishlist">
-			<div class="title">
+		<div className="wishlist">
+			<div className="title">
 				<h1>Wishlist</h1>
 			</div>
-			<div class="wishlist-item">
-				<div class="product-card">
-					<div class="card-header">
-						<img
-							class="card-img"
-							src="/assests/pictures/jordan.png"
-							alt="product-img"
-						/>
-						<span class="card-highlight">Top Rated</span>
-					</div>
-					<div class="card-body">
-						<div class="card-title">
-							<h2>12 Rules for life</h2>
-							<p>Self-help</p>
+			<div className="wishlist-item">
+				{wishlistState.wishlist.map((item) => (
+					<div key={item.id} className="product-card">
+						<div className="card-header">
+							<img className="card-img" src={item.image} alt="product-img" />
+							<span className="card-highlight">Top Rated</span>
 						</div>
-						<p class="card-text">
-							Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-						</p>
-
-						<div class="card-cta">
-							<h2>$50</h2>
-							<button class="btn btn-primary">
-								<i class="far fa-shopping-cart fa-lg"></i> Add to cart
-							</button>
-							<button class="btn btn-primary-outlined">
-								Remove from Wishlist
-							</button>
-						</div>
-					</div>
-				</div>
-				<div class="product-card">
-					<div class="card-header">
-						<img
-							class="card-img"
-							src="/assests/pictures/habits.jpg"
-							alt="product-img"
-						/>
-						<span class="card-highlight">Top Rated</span>
-					</div>
-					<div class="card-body">
-						<div class="card-title">
-							<h2>Atomic Habits</h2>
-							<p>Self-help</p>
-						</div>
-						<p class="card-text">
-							Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-						</p>
-
-						<div class="card-cta">
-							<h2>$50</h2>
-							<button class="btn btn-primary">
-								<i class="far fa-shopping-cart fa-lg"></i> Add to cart
-							</button>
-							<button class="btn btn-primary-outlined">
-								Remove from Wishlist
-							</button>
+						<div className="card-body">
+							<div className="card-title">
+								<h2>{item.title}</h2>
+								<p>{item.categoryName}</p>
+							</div>
+							<p className="card-text">
+								Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+							</p>
+							<div className="card-cta">
+								<h2>₹{item.price}</h2>
+								<button
+									className="btn btn-primary"
+									onClick={() =>
+										cartClickHandler(cartState, cartDispatch, item)
+									}
+								>
+									<i className="far fa-shopping-cart fa-lg"></i> Add to cart
+								</button>
+								<button
+									onClick={() =>
+										wishlistDispatch({
+											type: "REMOVE_FROM_WISHLIST",
+											payload: item.id,
+										})
+									}
+									className="btn btn-primary-outlined"
+								>
+									Remove from Wishlist
+								</button>
+							</div>
 						</div>
 					</div>
-				</div>
-				<div class="product-card">
-					<div class="card-header">
-						<img
-							class="card-img"
-							src="/assests/pictures/behave.jpg"
-							alt="product-img"
-						/>
-						<span class="card-highlight">Top Rated</span>
-					</div>
-					<div class="card-body">
-						<div class="card-title">
-							<h2>Behave</h2>
-							<p>Self-help</p>
-						</div>
-						<p class="card-text">
-							Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-						</p>
-
-						<div class="card-cta">
-							<h2>$50</h2>
-							<button class="btn btn-primary">
-								<i class="far fa-shopping-cart fa-lg"></i> Add to cart
-							</button>
-							<button class="btn btn-primary-outlined">
-								Remove from Wishlist
-							</button>
-						</div>
-					</div>
-				</div>
-				<div class="product-card">
-					<div class="card-header">
-						<img
-							class="card-img"
-							src="/assests/pictures/naval.png"
-							alt="product-img"
-						/>
-						<span class="card-highlight">Top Rated</span>
-					</div>
-					<div class="card-body">
-						<div class="card-title">
-							<h2>Naval Ravikant</h2>
-							<p>Self-help</p>
-						</div>
-						<p class="card-text">
-							Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-						</p>
-
-						<div class="card-cta">
-							<h2>$50</h2>
-							<button class="btn btn-primary">
-								<i class="far fa-shopping-cart fa-lg"></i> Add to cart
-							</button>
-							<button class="btn btn-primary-outlined">
-								Remove from Wishlist
-							</button>
-						</div>
-					</div>
-				</div>
+				))}
 			</div>
 		</div>
 	);
