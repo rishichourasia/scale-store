@@ -9,19 +9,6 @@ export const CartCard = ({ item }) => {
 	const { cartDispatch } = useCart();
 	const { wishlistState, wishlistDispatch } = useWishlist();
 
-	// const wishlistMoveClickHandler = (
-	// 	wishlistState,
-	// 	wishlistDispatch,
-	// 	product
-	// ) => {
-	// 	if (wishlistState.wishlist.some((item) => item.id === product.id)) {
-	// 		cartDispatch({ type: "REMOVE_FROM_CART", payload: product.id });
-	// 	} else {
-	// 		wishlistDispatch({ type: "ADD_TO_WISHLIST", payload: product });
-	// 		cartDispatch({ type: "REMOVE_FROM_CART", payload: product.id });
-	// 	}
-	// };
-
 	return (
 		<div key={id} className="cart-card">
 			<div className="cart-header">

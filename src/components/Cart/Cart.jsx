@@ -7,8 +7,6 @@ import { CartCard } from "./CartCard";
 export const Cart = () => {
 	const { cartState } = useCart();
 
-	console.log(cartState.cart);
-
 	return (
 		<div className="cart-container">
 			<div className="cart-title">

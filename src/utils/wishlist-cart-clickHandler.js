@@ -9,10 +9,8 @@ const wishlistClickHandler = (wishlistState, wishlistDispatch, product) => {
 const cartClickHandler = (cartState, cartDispatch, product) => {
 	if (cartState.cart.some((item) => item.id === product.id)) {
 		cartDispatch({ type: "INCREASE_QTY", payload: product });
-		console.log("Increase");
 	} else {
 		cartDispatch({ type: "ADD_TO_CART", payload: product });
-		console.log("ADD");
 	}
 };
 
