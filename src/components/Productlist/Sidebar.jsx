@@ -3,6 +3,8 @@ import { useProduct } from "../../context/product-context";
 
 export const Sidebar = () => {
 	const { productState, productDispatch } = useProduct();
+	const { categories } = productState;
+	const { selfHelp, philosophy, humanpsychology, spirituality } = categories;
 
 	const { price } = productState;
 
@@ -10,7 +12,9 @@ export const Sidebar = () => {
 		<div className="sidebar">
 			<div className="filter-title">
 				<p className="aside-title">Filter</p>
-				<p>Clear</p>
+				<p className="clear" onClick={() => productDispatch({ type: "CLEAR" })}>
+					Clear
+				</p>
 			</div>
 			<div className="quantity-slider">
 				<p className="aside-title">Price Range : ₹{price}</p>
@@ -36,25 +40,41 @@ export const Sidebar = () => {
 				<ol className="list">
 					<li>
 						<label>
-							<input type="checkbox" />
+							<input
+								type="checkbox"
+								checked={selfHelp}
+								onChange={() => productDispatch({ type: "SELF_HELP" })}
+							/>
 							Self-Help
 						</label>
 					</li>
 					<li>
 						<label>
-							<input type="checkbox" />
-							Psychology
+							<input
+								type="checkbox"
+								checked={philosophy}
+								onChange={() => productDispatch({ type: "PHILOSOPHY" })}
+							/>
+							Philosophy
 						</label>
 					</li>
 					<li>
 						<label>
-							<input type="checkbox" />
-							Human Behaviours
+							<input
+								type="checkbox"
+								checked={humanpsychology}
+								onChange={() => productDispatch({ type: "HUMAN_PSYCHOLOGY" })}
+							/>
+							Human Psychology
 						</label>
 					</li>
 					<li>
 						<label>
-							<input type="checkbox" />
+							<input
+								type="checkbox"
+								checked={spirituality}
+								onChange={() => productDispatch({ type: "SPIRITUALITY" })}
+							/>
 							Spirituality
 						</label>
 					</li>

@@ -16,6 +16,51 @@ const ProductReducer = (state, action) => {
 			return { ...state, rating: action.payload };
 		case "PRICE_SLIDER":
 			return { ...state, price: action.payload };
+		case "SELF_HELP":
+			return {
+				...state,
+				categories: {
+					...state["categories"],
+					selfHelp: !state.categories.selfHelp,
+				},
+			};
+		case "PHILOSOPHY":
+			return {
+				...state,
+				categories: {
+					...state["categories"],
+					philosophy: !state.categories.philosophy,
+				},
+			};
+		case "HUMAN_PSYCHOLOGY":
+			return {
+				...state,
+				categories: {
+					...state["categories"],
+					humanpsychology: !state.categories.humanpsychology,
+				},
+			};
+		case "SPIRITUALITY":
+			return {
+				...state,
+				categories: {
+					...state["categories"],
+					spirituality: !state.categories.spirituality,
+				},
+			};
+		case "CLEAR":
+			return {
+				...state,
+				sortBy: "",
+				rating: "",
+				price: 1000,
+				categories: {
+					selfHelp: false,
+					philosophy: false,
+					humanpsychology: false,
+					spirituality: false,
+				},
+			};
 	}
 };
 

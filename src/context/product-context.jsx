@@ -9,6 +9,12 @@ const ProductProvider = ({ children }) => {
 		sortBy: "",
 		rating: "",
 		price: 1000,
+		categories: {
+			selfHelp: false,
+			philosophy: false,
+			humanpsychology: false,
+			spirituality: false,
+		},
 	});
 
 	return (
