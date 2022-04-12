@@ -1,21 +1,12 @@
 import React from "react";
 import { useCart } from "../../context/cart-context";
 import { useWishlist } from "../../context/wishlist-context";
+import { cartClickHandler } from "../../utils/wishlist-cart-clickHandler";
 import "./wishlist.css";
 
 export const Wishlist = () => {
 	const { wishlistState, wishlistDispatch } = useWishlist();
 	const { cartState, cartDispatch } = useCart();
-
-	const cartClickHandler = (product) => {
-		if (cartState.cart.some((item) => item.id === product.id)) {
-			cartDispatch({ type: "INCREASE_QTY", payload: product });
-			console.log("Increase");
-		} else {
-			cartDispatch({ type: "ADD_TO_CART", payload: product });
-			console.log("ADD");
-		}
-	};
 
 	return (
 		<div className="wishlist">
@@ -41,7 +32,9 @@ export const Wishlist = () => {
 								<h2>₹{item.price}</h2>
 								<button
 									className="btn btn-primary"
-									onClick={() => cartClickHandler(item)}
+									onClick={() =>
+										cartClickHandler(cartState, cartDispatch, item)
+									}
 								>
 									<i className="far fa-shopping-cart fa-lg"></i> Add to cart
 								</button>

@@ -2,21 +2,15 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useCart } from "../../context/cart-context";
 import { useWishlist } from "../../context/wishlist-context";
+import {
+	cartClickHandler,
+	wishlistClickHandler,
+} from "../../utils/wishlist-cart-clickHandler";
 
 export const ProductCard = ({ item }) => {
-	const { wishlistDispatch } = useWishlist();
+	const { wishlistState, wishlistDispatch } = useWishlist();
 	const { cartState, cartDispatch } = useCart();
 	const { id, image, title, categoryName, rating, price } = item;
-
-	const cartClickHandler = (itemId) => {
-		if (cartState.cart.some((item) => item.id === itemId)) {
-			cartDispatch({ type: "INCREASE_QTY", payload: item });
-			console.log("Increase");
-		} else {
-			cartDispatch({ type: "ADD_TO_CART", payload: item });
-			console.log("ADD");
-		}
-	};
 
 	return (
 		<div key={id} className="product-card">
@@ -25,7 +19,7 @@ export const ProductCard = ({ item }) => {
 				<span className="card-highlight">Top Rated</span>
 				<span
 					onClick={() =>
-						wishlistDispatch({ type: "ADD_TO_WISHLIST", payload: item })
+						wishlistClickHandler(wishlistState, wishlistDispatch, item)
 					}
 					className="card-icon card-hover"
 				>
@@ -51,7 +45,7 @@ export const ProductCard = ({ item }) => {
 						</Link>
 					) : (
 						<button
-							onClick={() => cartClickHandler(id)}
+							onClick={() => cartClickHandler(cartState, cartDispatch, item)}
 							className="btn btn-primary"
 						>
 							<i className="far fa-shopping-cart fa-lg" /> Add to Cart

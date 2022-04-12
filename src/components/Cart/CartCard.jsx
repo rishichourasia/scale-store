@@ -1,24 +1,30 @@
 import React from "react";
 import { useCart } from "../../context/cart-context";
 import { useWishlist } from "../../context/wishlist-context";
+import { wishlistMoveClickHandler } from "../../utils/wishlist-cart-clickHandler";
+// import { wishlistClickHandler } from "../../utils/wishlist-cart-clickHandler";
 
 export const CartCard = ({ item }) => {
 	const { id, image, title, categoryName, price, quantity } = item;
 	const { cartDispatch } = useCart();
 	const { wishlistState, wishlistDispatch } = useWishlist();
 
-	const wishlistClickHandler = (product) => {
-		if (wishlistState.wishlist.some((item) => item.id === product.id)) {
-			cartDispatch({ type: "REMOVE_FROM_CART", payload: product.id });
-		} else {
-			wishlistDispatch({ type: "ADD_TO_WISHLIST", payload: product });
-			cartDispatch({ type: "REMOVE_FROM_CART", payload: product.id });
-		}
-	};
+	// const wishlistMoveClickHandler = (
+	// 	wishlistState,
+	// 	wishlistDispatch,
+	// 	product
+	// ) => {
+	// 	if (wishlistState.wishlist.some((item) => item.id === product.id)) {
+	// 		cartDispatch({ type: "REMOVE_FROM_CART", payload: product.id });
+	// 	} else {
+	// 		wishlistDispatch({ type: "ADD_TO_WISHLIST", payload: product });
+	// 		cartDispatch({ type: "REMOVE_FROM_CART", payload: product.id });
+	// 	}
+	// };
 
 	return (
 		<div key={id} className="cart-card">
-			<div className="card-header">
+			<div className="cart-header">
 				<img className="cart-img" src={image} alt="product-img" />
 				<span className="card-highlight">Top Rated</span>
 			</div>
@@ -32,7 +38,7 @@ export const CartCard = ({ item }) => {
 						onClick={() =>
 							cartDispatch({ type: "DECREASE_QTY", payload: item })
 						}
-						className="qty-btn"
+						className="qty-btn btn btn-primary"
 					>
 						-
 					</button>
@@ -41,7 +47,7 @@ export const CartCard = ({ item }) => {
 						onClick={() =>
 							cartDispatch({ type: "INCREASE_QTY", payload: item })
 						}
-						className="qty-btn"
+						className="qty-btn  btn btn-primary"
 					>
 						+
 					</button>
@@ -49,7 +55,14 @@ export const CartCard = ({ item }) => {
 				<div className="card-cta">
 					<h2>₹{price}</h2>
 					<button
-						onClick={() => wishlistClickHandler(item)}
+						onClick={() =>
+							wishlistMoveClickHandler(
+								wishlistState,
+								wishlistDispatch,
+								cartDispatch,
+								item
+							)
+						}
 						className="btn btn-primary"
 					>
 						<i className="far fa-heart fa-lg" /> Move to Wishlist

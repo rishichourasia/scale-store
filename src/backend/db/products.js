@@ -97,10 +97,10 @@ export const products = [
 	},
 	{
 		_id: uuid(),
-		title: "The Philosophy Book",
+		title: "Meditation",
 		price: 500,
 		rating: 1,
 		categoryName: "Philosophy",
-		image: "/assests/pictures/the philiosphy book.jpg",
+		image: "/assests/pictures/meditation.jpg",
 	},
 ];

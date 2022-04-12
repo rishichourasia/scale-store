@@ -43,10 +43,11 @@
 	width: 80%;
 }
 
-.card-header {
+.cart-header {
 	position: relative;
 	display: flex;
 	justify-content: center;
+	height: 17rem;
 }
 .card-highlight {
 	position: absolute;
@@ -73,7 +74,7 @@
 .cart-body {
 	display: flex;
 	flex-direction: column;
-	width: 70%;
+	width: 66%;
 	margin-top: auto;
 }
 .card-cta h2 {
@@ -177,7 +178,7 @@
 		width: 18rem;
 	}
 	.cart-body {
-		width: 60%;
+		width: 53%;
 	}
 	.cart-card {
 		width: 25rem;
