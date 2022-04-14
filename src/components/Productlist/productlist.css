@@ -161,10 +161,19 @@
 }
 
 .card-hover:hover {
-	background-color: var(--light-bg-color);
+	background-color: var(--light-grey-color);
 }
 .goto {
 	width: 100%;
+}
+.wait {
+	color: var(--light-grey-color);
+}
+.click {
+	color: var(--click-color);
+}
+.wish-hover:hover {
+	background-color: var(--light-grey-color);
 }
 /* card css  */
 

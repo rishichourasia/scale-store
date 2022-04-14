@@ -16,6 +16,8 @@
 	--info-card-bg-color: rgb(236, 236, 236);
 	--info-card-light-bg-color: rgb(242, 242, 242);
 	--light-bg-color: rgb(124, 124, 124);
+	--light-grey-color: rgb(184, 184, 184);
+	--click-color: rgb(255, 79, 79);
 }
 
 * {

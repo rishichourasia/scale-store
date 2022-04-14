@@ -21,9 +21,13 @@ export const ProductCard = ({ item }) => {
 					onClick={() =>
 						wishlistClickHandler(wishlistState, wishlistDispatch, item)
 					}
-					className="card-icon card-hover"
+					className="card-icon card-hover wish-hover"
 				>
-					<i className="far fa-heart fa-lg" />
+					{wishlistState.wishlist.some((product) => product.id === item.id) ? (
+						<i className="fas fa-heart fa-lg click" />
+					) : (
+						<i className="fas fa-heart fa-lg wait" />
+					)}
 				</span>
 			</div>
 			<div className="card-body">
