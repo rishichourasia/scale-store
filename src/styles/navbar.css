@@ -27,6 +27,13 @@
 	justify-content: space-around;
 }
 
+.nav-cta {
+	display: flex;
+  align-items: center;
+  gap: 15px;
+	margin-right: 5px;
+}
+
 @media only screen and (max-width: 780px) {
 	.nav {
 		padding-right: 0;
@@ -40,5 +47,8 @@
 	.nav button {
 		margin: 5px;
 		padding: auto;
+	}
+	.menu-logo{
+		margin-left: 0.4rem;
 	}
 }

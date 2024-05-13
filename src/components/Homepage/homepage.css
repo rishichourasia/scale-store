@@ -40,6 +40,7 @@
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	margin: 25px;
+	margin-top: 6rem;
 }
 
 .feature {
@@ -75,6 +76,34 @@
 	box-shadow: none;
 }
 
+.hero-container {
+		display: flex;
+    align-items: center;
+    width: 100%;
+		margin-top: 1	rem;
+    justify-content: space-between;
+}
+
+.hero-title {
+		font-size: 4rem;
+		font-weight: 600;
+    width: 65%;
+    padding: 0 9rem;
+}
+
+.hero-image {
+		width: 35%;
+    display: flex;
+    justify-content: center;
+    margin-right: 20px;
+}
+.home-btn {
+	margin-left: 0;
+}
+.highlight-text {
+	background-color: #fdf1c1;
+}
+
 @media only screen and (max-width: 780px) {
 	.desc-container {
 		display: flex;
@@ -88,4 +117,17 @@
 	.image-text-overlay .img-text {
 		font-size: 1rem;
 	}
+	.hero-container {
+		flex-wrap: wrap;
+	}
+	.hero-title {
+		width: 100%;
+		font-size: 2.2rem;
+		padding: 2rem 1.3rem;
+	}
+	.hero-image {
+		width: 80%;
+		margin-left: 45px;
+	}
+
 }
