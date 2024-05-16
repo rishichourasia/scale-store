@@ -2,25 +2,12 @@ import React from "react";
 import "./homepage.css";
 import { Link } from "react-router-dom";
 import HeroComponent from "../../icons";
+import { useAuth } from "../../context/auth-context";
+import { useProduct } from "../../context/product-context";
 
 const HomePage = () => {
   return (
     <>
-      {/* <div className="img-container">
-				<img
-					className="homepage-img"
-					src="/assests/pictures/homepage-img-cropped.jpg"
-					alt="home-img"
-				/>
-				<div className="image-text-overlay">
-					<div className="img-text">
-						<h3>Enrich your spiritual wellbeing with self-help books.</h3>
-					</div>
-					<Link to="/productlist">
-						<button className="btn btn-primary">View Books</button>
-					</Link>
-				</div>
-			</div> */}
       <div className="hero-container">
         <div className="hero-title">
           <p>
