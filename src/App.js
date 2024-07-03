@@ -9,8 +9,19 @@ import {
   Signup,
   Navbar,
 } from "./components/components.jsx";
+import { useEffect } from "react";
+import { useAuth } from "./context/auth-context.jsx";
 
 function App() {
+  const { setAuth } = useAuth();
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      setAuth(true);
+    }
+  }, []);
+
   return (
     <div className="App">
       <BrowserRouter>

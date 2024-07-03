@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import "./login.css";
 import { Link, useNavigate } from "react-router-dom";
-import { login } from "../../actions/auth";
 import { useAuth } from "../../context/auth-context";
+import login from "../../actions/auth";
 
 export const Login = () => {
   const navigate = useNavigate();
@@ -46,7 +46,10 @@ export const Login = () => {
             email: "testuser@gmail.com",
             password: "test",
           });
-          login(navigate, setAuth, input);
+          login(navigate, setAuth, {
+            email: "testuser@gmail.com",
+            password: "test",
+          });
         }}
       >
         Login using test credentials

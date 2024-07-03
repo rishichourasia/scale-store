@@ -1,15 +1,23 @@
 import axios from "axios";
+import fetchApi from "../client-service/fetchApi";
 
-const login = async (navigate, setAuth, payload) => {
+export default async function login(navigate, setAuth, payload) {
   try {
-    const response = await axios.post("/api/auth/login", payload);
-    localStorage.setItem("token", JSON.stringify(response.data.encodedToken));
-    setAuth(true);
-    console.log(response.data.encodedToken ? "Logged in" : "Error");
-    navigate("/");
+    const result = await fetchApi("/api/auth/login", payload, "post");
+    const response = await result.json();
+    if (!response.errors) {
+      localStorage.setItem(
+        "store-token",
+        JSON.stringify(response.encodedToken)
+      );
+      localStorage.setItem("store-user", JSON.stringify(response.foundUser));
+      setAuth(true);
+      console.log(response.encodedToken ? "Logged in" : "Login Error");
+      navigate("/");
+      return;
+    }
+    console.log(response.errors[0]);
   } catch (err) {
     console.log(err);
   }
-};
-
-export { login };
+}
