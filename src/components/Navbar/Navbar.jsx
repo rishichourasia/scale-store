@@ -14,7 +14,7 @@ export const Navbar = () => {
     setAuth(false);
     navigate("/");
   };
-  console.log("user-here-", user);
+
   return (
     <>
       <header className="nav fixed">
@@ -43,14 +43,14 @@ export const Navbar = () => {
 
           {!isAuth ? (
             <Link to="/login">
-              <button className="btn  btn-primary-outlined">Register</button>
+              <button className="btn  btn-primary-outlined">Sign in</button>
             </Link>
           ) : (
             <React.Fragment>
               <div className="hover">
                 <i className="far fa-user fa-thin fa-lg" />
               </div>
-              <p>{user.firstName}</p>
+              <p>{user?.firstName}</p>
 
               <button
                 className="btn  btn-primary-outlined"

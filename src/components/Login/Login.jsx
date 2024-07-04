@@ -3,10 +3,11 @@ import "./login.css";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/auth-context";
 import login from "../../actions/auth";
+import authHandler from "../../actions/auth";
 
 export const Login = () => {
   const navigate = useNavigate();
-  const { isAuth, setAuth } = useAuth();
+  const { setAuth } = useAuth();
   const [input, setInput] = useState({ email: "", password: "" });
   return (
     <div className="login-container">
@@ -34,7 +35,7 @@ export const Login = () => {
       <button
         className="btn btn-primary"
         onClick={() => {
-          login(navigate, setAuth, input);
+          authHandler(navigate, setAuth, input, "login");
         }}
       >
         Login
@@ -46,10 +47,15 @@ export const Login = () => {
             email: "testuser@gmail.com",
             password: "test",
           });
-          login(navigate, setAuth, {
-            email: "testuser@gmail.com",
-            password: "test",
-          });
+          authHandler(
+            navigate,
+            setAuth,
+            {
+              email: "testuser@gmail.com",
+              password: "test",
+            },
+            "login"
+          );
         }}
       >
         Login using test credentials

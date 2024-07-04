@@ -50,3 +50,7 @@
 .title {
 	margin: auto;
 }
+.disabled:disabled {
+	background-color: rgb(161, 158, 158);
+	cursor: not-allowed;
+}

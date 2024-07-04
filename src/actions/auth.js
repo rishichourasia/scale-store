@@ -1,9 +1,14 @@
 import axios from "axios";
 import fetchApi from "../client-service/fetchApi";
 
-export default async function login(navigate, setAuth, payload) {
+export default async function authHandler(
+  navigate,
+  setAuth,
+  payload,
+  requestType
+) {
   try {
-    const result = await fetchApi("/api/auth/login", payload, "post");
+    const result = await fetchApi(`/api/auth/${requestType}`, payload, "post");
     const response = await result.json();
     if (!response.errors) {
       localStorage.setItem(
