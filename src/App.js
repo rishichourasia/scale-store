@@ -16,7 +16,8 @@ function App() {
   const { setAuth } = useAuth();
 
   useEffect(() => {
-    const token = localStorage.getItem("token");
+    const token = localStorage.getItem("store-token");
+    console.log("Tokenn--", token);
     if (token) {
       setAuth(true);
     }

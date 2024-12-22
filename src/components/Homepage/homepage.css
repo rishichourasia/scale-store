@@ -40,7 +40,7 @@
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	margin: 25px;
-	margin-top: 6rem;
+	margin-top: 8rem;
 }
 
 .feature {
@@ -95,13 +95,13 @@
 		width: 35%;
     display: flex;
     justify-content: center;
-    margin-right: 20px;
+    margin-right: 110px;
 }
 .home-btn {
 	margin-left: 0;
 }
 .highlight-text {
-	background-color: #fdf1c1;
+	background-color: #ffe684;
 }
 
 @media only screen and (max-width: 780px) {
@@ -124,6 +124,12 @@
 		width: 100%;
 		font-size: 2.2rem;
 		padding: 2rem 1.3rem;
+		display: flex;
+		flex-direction: column;
+    align-items: center;
+	}
+	.title-text{
+		text-align: center;
 	}
 	.hero-image {
 		width: 80%;

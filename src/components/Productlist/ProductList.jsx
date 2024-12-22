@@ -1,37 +1,49 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Sidebar } from "./Sidebar";
 import "./productlist.css";
 import { useProduct } from "../../context/product-context";
 import { apiCall } from "../../utils/productlist-api-call";
 import {
-	priceRange,
-	ratingProducts,
-	sortCategory,
-	sortProducts,
+  priceRange,
+  ratingProducts,
+  sortCategory,
+  sortProducts,
 } from "../../utils/filters";
 import { ProductCard } from "./ProductCard";
 
 export const ProductList = () => {
-	const { productState, productDispatch } = useProduct();
-	const { productsList, rating, sortBy, price, categories } = productState;
+  const { productState, productDispatch } = useProduct();
+  const { productsList, rating, sortBy, price, categories } = productState;
+  const [isLoading, setIsLoading] = useState(true);
 
-	useEffect(() => {
-		apiCall(productDispatch);
-	}, []);
+  const fetchProducts = async () => {
+    await apiCall(productDispatch);
+    setIsLoading(false);
+  };
 
-	const categoryProducts = sortCategory(productsList, categories);
-	const rangedProducts = priceRange(categoryProducts, price);
-	const ratedProducts = ratingProducts(rangedProducts, rating);
-	const sortedProducts = sortProducts(ratedProducts, sortBy);
+  useEffect(() => {
+    fetchProducts();
+  }, []);
 
-	return (
-		<div className="main">
-			<Sidebar />
-			<div className="productlist">
-				{sortedProducts.map((item) => (
-					<ProductCard item={item} key={item.id} />
-				))}
-			</div>
-		</div>
-	);
+  const categoryProducts = sortCategory(productsList, categories);
+  const rangedProducts = priceRange(categoryProducts, price);
+  const ratedProducts = ratingProducts(rangedProducts, rating);
+  const sortedProducts = sortProducts(ratedProducts, sortBy);
+
+  return (
+    <div className="main">
+      <Sidebar />
+      <div className="productlist">
+        {isLoading ? (
+          <div className="loader-div">
+            <span class="loader"></span>
+          </div>
+        ) : (
+          sortedProducts.map((item) => (
+            <ProductCard item={item} key={item.id} />
+          ))
+        )}
+      </div>
+    </div>
+  );
 };
