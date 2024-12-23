@@ -20,7 +20,6 @@ export const Signup = () => {
   const signupHandler = async () => {
     if (input.password !== input.confirmPassword) {
       return;
-      console.log("Rejected");
     }
     console.log("accepted");
 
