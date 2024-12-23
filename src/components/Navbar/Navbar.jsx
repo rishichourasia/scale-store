@@ -53,7 +53,7 @@ export const Navbar = () => {
               <div className="hover">
                 <i className="far fa-user fa-thin fa-lg" />
               </div>
-              <p>{user?.firstName}</p>
+              <p className="user-name">{user?.firstName}</p>
 
               <button
                 className="btn  btn-primary-outlined"

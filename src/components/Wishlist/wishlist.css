@@ -30,6 +30,7 @@
 	width: 18rem;
 	box-shadow: var(--light-box-shadow);
 	border-radius: 4px;
+	padding-bottom: 10px;
 }
 
 .card-header {
@@ -70,6 +71,13 @@
 	margin: 15px 15px 5px 15px;
 	margin-top: auto;
 	width: auto;
+}
+.wishlist-hero-image{
+	display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    font-size: 1.5rem;
 }
 .card-title {
 	margin-bottom: 10px;

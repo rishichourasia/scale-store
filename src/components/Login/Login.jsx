@@ -43,7 +43,7 @@ export const Login = () => {
         Login
       </button>
       <button
-        className="btn btn-primary"
+        className="btn btn-secondary"
         onClick={() => {
           setInput({
             email: "testuser@gmail.com",

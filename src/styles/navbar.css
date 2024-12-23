@@ -51,4 +51,13 @@
 	.menu-logo{
 		margin-left: 0.4rem;
 	}
+	.user-name{
+		display: none;
+	}
+	.nav-cta {
+		display: flex;
+		align-items: center;
+		gap: 15px;
+		margin-right: 5px;
+	}
 }

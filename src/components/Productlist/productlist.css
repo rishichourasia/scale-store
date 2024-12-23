@@ -76,6 +76,7 @@
 	gap: 30px;
 	margin: 20px;
 	justify-content: flex-start;
+	column-gap: 50px;
 }
 .filter-title {
 	display: flex;
