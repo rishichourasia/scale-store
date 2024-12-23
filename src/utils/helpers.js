@@ -7,6 +7,7 @@ export function getUserToken() {
 
 export function getUser() {
   const user = localStorage.getItem("store-user");
+  console.log("user???--", user);
   return user ? JSON.parse(user) : null;
 }
 
