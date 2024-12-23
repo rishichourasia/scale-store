@@ -59,6 +59,7 @@ export const signupHandler = function (schema, request) {
  * */
 
 export const loginHandler = function (schema, request) {
+  console.log("ENV in backend--", process.env.REACT_APP_JWT_SECRET);
   const { email, password } = JSON.parse(request.requestBody);
   try {
     const foundUser = schema.users.findBy({ email });

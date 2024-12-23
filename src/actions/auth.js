@@ -12,7 +12,7 @@ export default async function authHandler(
     const result = await fetchApi(`/api/auth/${requestType}`, payload, "post");
     const response = await result.json();
     console.log("Api response--", response);
-    if (!response.errors) {
+    if (!response.error) {
       localStorage.setItem(
         "store-token",
         JSON.stringify(response?.encodedToken)
