@@ -31,7 +31,7 @@ export const Cart = () => {
               ))
             ) : (
               <div className="wishlist-hero-image">
-                <HeroComponent />
+                <HeroComponent width={300} height={300} />
                 Cart is empty
               </div>
             )}

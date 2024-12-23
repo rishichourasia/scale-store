@@ -59,7 +59,7 @@ export const Wishlist = () => {
           ))
         ) : (
           <div className="wishlist-hero-image">
-            <HeroComponent />
+            <HeroComponent width={300} height={300} />
             Wishlist is empty
           </div>
         )}

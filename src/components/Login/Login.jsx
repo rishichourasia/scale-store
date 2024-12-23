@@ -43,7 +43,7 @@ export const Login = () => {
         Login
       </button>
       <button
-        className="btn btn-secondary"
+        className="btn btn-primary-outlined"
         onClick={() => {
           setInput({
             email: "testuser@gmail.com",
@@ -61,7 +61,7 @@ export const Login = () => {
           );
         }}
       >
-        Login using test credentials
+        Login as guest user
       </button>
 
       <div className="signup-cta">

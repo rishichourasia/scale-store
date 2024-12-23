@@ -1,16 +1,19 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { useCart } from "../../context/cart-context";
 import { useWishlist } from "../../context/wishlist-context";
 import {
   cartClickHandler,
   wishlistClickHandler,
 } from "../../utils/wishlist-cart-clickHandler";
-import toast, { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
+import { getUserToken } from "../../utils/helpers";
 
 export const ProductCard = ({ item }) => {
   const { wishlistState, wishlistDispatch } = useWishlist();
   const { cartState, cartDispatch } = useCart();
+  const navigate = useNavigate();
+  const token = getUserToken();
   const { id, image, title, categoryName, rating, price } = item;
 
   return (
@@ -51,7 +54,12 @@ export const ProductCard = ({ item }) => {
           ) : (
             <button
               onClick={() => {
-                cartClickHandler(cartState, cartDispatch, item, toast);
+                if (token) {
+                  cartClickHandler(cartState, cartDispatch, item, toast);
+                } else {
+                  navigate("/login");
+                  toast.error("Please login first");
+                }
               }}
               className="btn btn-primary"
             >
