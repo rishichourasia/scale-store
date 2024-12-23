@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/auth-context";
 import login from "../../actions/auth";
 import authHandler from "../../actions/auth";
+import toast, { Toaster } from "react-hot-toast";
 
 export const Login = () => {
   const navigate = useNavigate();
@@ -11,6 +12,7 @@ export const Login = () => {
   const [input, setInput] = useState({ email: "", password: "" });
   return (
     <div className="login-container">
+      <Toaster position="top-center " />
       <p className="title">Login</p>
       <div className="input-div">
         <label>Email</label>
@@ -35,7 +37,7 @@ export const Login = () => {
       <button
         className="btn btn-primary"
         onClick={() => {
-          authHandler(navigate, setAuth, input, "login");
+          authHandler(navigate, setAuth, input, "login", toast);
         }}
       >
         Login
@@ -54,7 +56,8 @@ export const Login = () => {
               email: "testuser@gmail.com",
               password: "test",
             },
-            "login"
+            "login",
+            toast
           );
         }}
       >

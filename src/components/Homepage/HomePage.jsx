@@ -4,11 +4,13 @@ import { Link } from "react-router-dom";
 import HeroComponent from "../../icons";
 import { useAuth } from "../../context/auth-context";
 import { useProduct } from "../../context/product-context";
+import toast, { Toaster } from "react-hot-toast";
 
 const HomePage = () => {
   return (
     <>
       <div className="hero-container">
+        <Toaster position="top-center " />
         <div className="hero-title">
           <p className="title-text">
             Unlock Your Potential - Curated{" "}

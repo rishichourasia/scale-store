@@ -3,6 +3,7 @@ import "./signup.css";
 import { Link, useNavigate } from "react-router-dom";
 import authHandler from "../../actions/auth";
 import { useAuth } from "../../context/auth-context";
+import { Toaster } from "react-hot-toast";
 
 export const Signup = () => {
   const navigate = useNavigate();
@@ -27,6 +28,7 @@ export const Signup = () => {
   };
   return (
     <div className="login-container">
+      <Toaster position="top-center " />
       <p className="title">Signup</p>
       <div className="input-div">
         <label>First Name</label>

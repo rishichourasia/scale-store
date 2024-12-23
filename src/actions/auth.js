@@ -5,24 +5,29 @@ export default async function authHandler(
   navigate,
   setAuth,
   payload,
-  requestType
+  requestType,
+  toast
 ) {
   try {
     const result = await fetchApi(`/api/auth/${requestType}`, payload, "post");
     const response = await result.json();
+    console.log("Api response--");
     if (!response.errors) {
       localStorage.setItem(
         "store-token",
-        JSON.stringify(response.encodedToken)
+        JSON.stringify(response?.encodedToken)
       );
-      localStorage.setItem("store-user", JSON.stringify(response.foundUser));
+      localStorage.setItem("store-user", JSON.stringify(response?.foundUser));
       setAuth(true);
-      console.log(response.encodedToken ? "Logged in" : "Login Error");
+      console.log(response?.encodedToken ? "Logged in" : "Login Error");
+      toast.success("Successfully logged in!");
       navigate("/");
-      return;
+      return true;
     }
-    console.log(response.errors[0]);
+    toast.error(response.errors[0]);
   } catch (err) {
-    console.log(err);
+    toast.error(err);
+    console.log("here???=--", err);
+    return false;
   }
 }

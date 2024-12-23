@@ -10,6 +10,7 @@ import {
   sortProducts,
 } from "../../utils/filters";
 import { ProductCard } from "./ProductCard";
+import { Toaster } from "react-hot-toast";
 
 export const ProductList = () => {
   const { productState, productDispatch } = useProduct();
@@ -32,11 +33,12 @@ export const ProductList = () => {
 
   return (
     <div className="main">
+      <Toaster position="top-center " />
       <Sidebar />
       <div className="productlist">
         {isLoading ? (
           <div className="loader-div">
-            <span class="loader"></span>
+            <span className="loader"></span>
           </div>
         ) : (
           sortedProducts.map((item) => (

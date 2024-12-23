@@ -77,6 +77,7 @@ export const loginHandler = function (schema, request) {
       foundUser.password = undefined;
       return new Response(200, {}, { foundUser, encodedToken });
     }
+    console.log("are you coming here??");
     new Response(
       401,
       {},

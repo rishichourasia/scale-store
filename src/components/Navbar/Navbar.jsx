@@ -3,6 +3,7 @@ import "../../styles/navbar.css";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/auth-context";
 import { getUser } from "../../utils/helpers";
+import toast, { Toaster } from "react-hot-toast";
 
 export const Navbar = () => {
   const { isAuth, setAuth } = useAuth();
@@ -13,11 +14,13 @@ export const Navbar = () => {
     localStorage.removeItem("store-user");
     setAuth(false);
     navigate("/");
+    toast.success("Successfully logged out");
   };
 
   return (
     <>
       <header className="nav fixed">
+        <Toaster position="top-center " />
         <div className="menu-logo">
           <div className="menu-btn">
             <Link to="/">
