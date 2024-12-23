@@ -10,7 +10,7 @@ export const Login = () => {
   const navigate = useNavigate();
   const { setAuth } = useAuth();
   const [input, setInput] = useState({ email: "", password: "" });
-  console.log("ENV--", process.env.REACT_APP_JWT_SECRET);
+  console.log("ENV in the app--", process.env.REACT_APP_JWT_SECRET);
   return (
     <div className="login-container">
       <Toaster position="top-center " />
