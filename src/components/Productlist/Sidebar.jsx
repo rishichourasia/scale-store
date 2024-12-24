@@ -10,7 +10,6 @@ export const Sidebar = () => {
   const { selfHelp, philosophy, humanpsychology, spirituality } = categories;
 
   const { price } = productState;
-  console.log("isModile--", isMobile);
 
   return (
     <div className="sidebar">

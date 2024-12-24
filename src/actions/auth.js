@@ -11,7 +11,7 @@ export default async function authHandler(
   try {
     const result = await fetchApi(`/api/auth/${requestType}`, payload, "post");
     const response = await result.json();
-    console.log("Api response--", response);
+
     if (!response.error) {
       localStorage.setItem(
         "store-token",
@@ -27,7 +27,7 @@ export default async function authHandler(
     toast.error(response.errors[0]);
   } catch (err) {
     toast.error(err);
-    console.log("here???=--", err);
+    console.log(err);
     return false;
   }
 }

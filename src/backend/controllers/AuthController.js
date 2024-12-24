@@ -59,7 +59,6 @@ export const signupHandler = function (schema, request) {
  * */
 
 export const loginHandler = function (schema, request) {
-  console.log("ENV in backend--", process.env.REACT_APP_JWT_SECRET);
   const { email, password } = JSON.parse(request.requestBody);
   try {
     const foundUser = schema.users.findBy({ email });
@@ -78,7 +77,7 @@ export const loginHandler = function (schema, request) {
       foundUser.password = undefined;
       return new Response(200, {}, { foundUser, encodedToken });
     }
-    console.log("are you coming here??");
+
     new Response(
       401,
       {},
@@ -89,7 +88,6 @@ export const loginHandler = function (schema, request) {
       }
     );
   } catch (error) {
-    console.log("are you coming here??", error);
     return new Response(
       500,
       {},
